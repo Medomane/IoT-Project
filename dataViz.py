@@ -74,6 +74,7 @@ def animate(i):
         sizes.append(row[1])
     print(labels)
     print(sizes)
+    ax3.clear()
     ax3.pie(sizes, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
     ax3.axis('equal')
@@ -87,6 +88,7 @@ def animate(i):
         sizes.append(row[1])
     print(labels)
     print(sizes)
+    ax4.clear()
     ax4.pie(sizes, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
     ax4.axis('equal')
