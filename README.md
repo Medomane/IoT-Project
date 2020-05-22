@@ -4,3 +4,9 @@
 ## ▪ Packages to install :
 *paho-mqtt, Json, random, threading, time datetime, 
 matplotlib, numpy, sqlite3, re, pynput, socke.*
+
+
+
+
+# Preview
+![](iot_graph.gif)
