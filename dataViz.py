@@ -65,6 +65,9 @@ def animate(i):
     ax2.xaxis.set_major_locator(loc)
     
 
+
+
+
     #Temp pie chart
     tempLevels = dbObj.select_db_record("SELECT TemperatureLevel, count(SensorID) FROM Temperature_Data GROUP BY TemperatureLevel", [])
     labels = []
@@ -95,6 +98,7 @@ def animate(i):
 
 
     fig.autofmt_xdate()
+    fig2.canvas.draw_idle()
     plt.tight_layout()
     plt.xticks(rotation=65, ha='right')
     
