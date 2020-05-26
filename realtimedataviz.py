@@ -21,7 +21,7 @@ class SensorDataHandler():
         self.max_data_len = data_length
 
 
-    def update_shit(self, timez, value,level):
+    def update_stuff(self, timez, value,level):
         print("updating...")
         if len(self.values) >= self.max_data_len:
             self.values.pop(0)
@@ -98,19 +98,11 @@ def update_data(topic, data):
     print("Update_data called on ", topic)
     json_data = json.loads(data)
     if topic == "Home/BedRoom/DHT1/Temperature":
-
         print("Updating temp with ",json_data['Temperature'])
-        temp_sensor_dh.update_shit(json_data['Date'][-15:-7], json_data['Temperature'],json_data['TemperatureLevel'])
-   
-     
-
-    elif topic == "Home/BedRoom/DHT1/Humidity":
-        
+        temp_sensor_dh.update_stuff(json_data['Date'][-15:-7], json_data['Temperature'],json_data['TemperatureLevel'])
+    elif topic == "Home/BedRoom/DHT1/Humidity":  
         print("Updating Humidity with ",json_data['Humidity'])
-        humidity_sensor_dh.update_shit(json_data['Date'][-15:-7], json_data['Humidity'],json_data['HumidityLevel'])
-     
-    else:
-        print("nigga wat, we cant handle that shitty topic rn bru")
+        humidity_sensor_dh.update_stuff(json_data['Date'][-15:-7], json_data['Humidity'],json_data['HumidityLevel'])
 
 
 def on_connect(self,mosq, obj, rc):
