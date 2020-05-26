@@ -1,5 +1,5 @@
 import datetime
-from storeData import DatabaseManager
+from mStoreData import DatabaseManager
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.dates as mdates
@@ -11,11 +11,12 @@ fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1)
 
 fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
 
-dbObj = DatabaseManager()
+#dbObj = DatabaseManager()
 
 loc = plticker.MultipleLocator(base=1.5)
 
 def animate(i):
+    dbObj = DatabaseManager()
     #Temp
     tempData = dbObj.select_db_record("SELECT * FROM Temperature_Data ORDER BY Date_Time DESC LIMIT 20",[])
     print(tempData)
@@ -101,6 +102,8 @@ def animate(i):
     fig2.canvas.draw_idle()
     plt.tight_layout()
     plt.xticks(rotation=65, ha='right')
+
+    del dbObj
     
 
 
